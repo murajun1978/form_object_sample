@@ -1,0 +1,21 @@
+= form_for @project do |f|
+  - if @project.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
+      %ul
+        - @project.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  %h3 Tags
+  #tags
+    .links
+      = link_to_add_association 'add tag', f, :tags
+    %br
+    #tag_list
+    = f.fields_for :tags do |tag|
+      = render 'tag_fields', f: tag
+  .actions
+    = f.submit 'Save'
