@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'hamlit'
 gem 'haml-rails'
 gem 'erb2haml', group: :development
+gem 'cocoon'
 
 group :development, :test do
   gem 'rspec-rails'
